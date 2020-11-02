@@ -314,7 +314,7 @@ public class MIReportingUtility {
                 }
             }
 
-            // Getting Creaditors account number
+            // Getting Creditors account number
 
             if (jsonBody.getJSONObject("Data").getJSONObject("Initiation").has("CreditorAccount")) {
                 if (jsonBody.getJSONObject("Data").getJSONObject("Initiation").getJSONObject("CreditorAccount")
@@ -322,7 +322,8 @@ public class MIReportingUtility {
                     credaccno = jsonBody.getJSONObject("Data").getJSONObject("Initiation")
                             .getJSONObject("CreditorAccount").getString("Identification");
                     elements.put("creditor_account_id", credaccno);
-                }
+                } else
+                    logger.debug("No Credit Account Found");
             }
 
             // Getting No of Transactions
